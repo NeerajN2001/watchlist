@@ -1,0 +1,141 @@
+body {
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: #1b1b1b;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: #000;
+}
+
+.content {
+  padding: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.meta {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* TAGS */
+.tag {
+  display: inline-block;
+  background: #333;
+  padding: 2px 6px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.watched {
+  background: #1db954;
+  color: black;
+}
+
+.not-watched {
+  background: #ff9800;
+  color: black;
+}
+
+/* STARS */
+.stars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 8px;
+}
+
+.star {
+  font-size: 16px;
+  color: gray;
+  cursor: default;
+}
+
+.star.active {
+  color: gold;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+}
+
+.modal-content {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+select {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}

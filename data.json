@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Inception",
+    "year": "2010",
+    "type": "movie",
+    "poster": "https://via.placeholder.com/300x450",
+    "plot": "A thief who steals corporate secrets through dream-sharing.",
+    "imdb": "8.8"
+  },
+  {
+    "name": "Breaking Bad",
+    "year": "2008",
+    "type": "series",
+    "poster": "https://via.placeholder.com/300x450",
+    "plot": "A chemistry teacher turns into a drug kingpin.",
+    "imdb": "9.5"
+  }
+]

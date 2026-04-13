@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Watched List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🎬 My Watched List</h1>
+
+<div class="controls">
+  <label>Sort By:</label>
+  <select id="sortSelect">
+    <option value="name">Name</option>
+    <option value="release">Release</option>
+    <option value="rating">Rating</option>
+    <option value="watched">Watched</option>
+    <option value="genre">Genre</option>
+    <option value="language">Language</option>
+  </select>
+
+  <select id="genreFilter" style="display:none;"></select>
+  <select id="languageFilter" style="display:none;"></select>
+</div>
+
+<div class="container" id="container"></div>
+
+<!-- MODAL -->
+<div id="modal" class="modal"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
