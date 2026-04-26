@@ -122,6 +122,8 @@ function populateLanguages(data) {
 function applySortAndRender() {
   let data = [...globalData];
 
+  data = data.filter(item => item.Added?.trim().toUpperCase() === "Y");
+
   const sortType = document.getElementById("sortSelect").value;
   const genreFilter = document.getElementById("genreFilter").value;
   const languageFilter = document.getElementById("languageFilter").value;
