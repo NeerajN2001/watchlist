@@ -82,6 +82,7 @@ async function loadData() {
 
   populateGenres(globalData);
   populateLanguages(globalData);
+  populateCategories(globalData);
 
   applySortAndRender();
 }
@@ -118,6 +119,24 @@ function populateLanguages(data) {
   });
 }
 
+// 🔹 CATEGORY FILTER
+function populateCategories(data) {
+  const set = new Set();
+
+  data.forEach(item => {
+    if (item.Category) {
+      set.add(item.Category.trim());
+    }
+  });
+
+  const select = document.getElementById("categoryFilter");
+  select.innerHTML = `<option value="">All Categories</option>`;
+
+  set.forEach(c => {
+    select.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+}
+
 // 🔹 SORT + FILTER + RENDER
 function applySortAndRender() {
   let data = [...globalData];
@@ -127,6 +146,7 @@ function applySortAndRender() {
   const sortType = document.getElementById("sortSelect").value;
   const genreFilter = document.getElementById("genreFilter").value;
   const languageFilter = document.getElementById("languageFilter").value;
+  const categoryFilter = document.getElementById("categoryFilter").value;
 
   // SORT
   if (sortType === "name") {
@@ -157,6 +177,14 @@ function applySortAndRender() {
     if (languageFilter) {
       data = data.filter(item =>
         getLanguages(item.Language).includes(languageFilter)
+      );
+    }
+  }
+
+  else if (sortType === "category") {
+    if (categoryFilter) {
+      data = data.filter(item =>
+        item.Category?.trim() === categoryFilter
       );
     }
   }
@@ -250,12 +278,15 @@ document.getElementById("sortSelect").addEventListener("change", () => {
 
   const genre = document.getElementById("genreFilter");
   const language = document.getElementById("languageFilter");
+  const category = document.getElementById("categoryFilter");
 
   genre.style.display = "none";
   language.style.display = "none";
+  category.style.display = "none";
 
   if (sortType === "genre") genre.style.display = "inline-block";
   if (sortType === "language") language.style.display = "inline-block";
+  if (sortType === "category") category.style.display = "inline-block";
 
   applySortAndRender();
 });
@@ -264,6 +295,9 @@ document.getElementById("genreFilter")
   .addEventListener("change", applySortAndRender);
 
 document.getElementById("languageFilter")
+  .addEventListener("change", applySortAndRender);
+
+document.getElementById("categoryFilter")
   .addEventListener("change", applySortAndRender);
 
 // 🔹 INIT
